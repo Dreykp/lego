@@ -1,12 +1,12 @@
 [
   {
-    "id": "wedo-animal-01",
-    "title": "Рухається лев",
-    "description": "Модель лева з рухомою головою та хвостом для вивчення передачі руху.",
-    "category": "Тварини",
+    "id": "1",
+    "title": "r2d2",
+    "description": "Модель робота r2d2 з фільму Зоряні війни.",
+    "category": "Робот",
     "difficulty": 2,
-    "pdf_url": "https://drive.google.com/file/d/1abcLionPDF/view",
-    "image_url": "https://drive.google.com/uc?export=view&id=1abcLionIMG",
+    "pdf_url": "https://drive.google.com/file/d/1XRvsG97wSRCWebOdWns0wSjHY-5i__Yr/view?usp=drive_link",
+    "image_url": "https://drive.google.com/file/d/1BerM2qELgYS4-PZ8dAsFGFsHmUriover/view?usp=drive_link",
     "tags": ["WeDo 2.0", "мотор", "сенсор нахилу"]
   },
   {
