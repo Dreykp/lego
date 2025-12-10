@@ -5,6 +5,10 @@ const categorySelect = document.getElementById("category");
 const difficultySelect = document.getElementById("difficulty");
 const statsEl = document.getElementById("stats");
 const emptyMessageEl = document.getElementById("empty-message");
+const pdfModal = document.getElementById("pdf-modal");
+const pdfFrame = document.getElementById("pdf-frame");
+const pdfClose = document.getElementById("pdf-close");
+const pdfModalTitle = document.getElementById("pdf-modal-title");
 
 let allInstructions = [];
 
@@ -87,6 +91,7 @@ function renderCards(list) {
     const description = fragment.querySelector(".card-description");
     const tagsContainer = fragment.querySelector(".card-tags");
     const link = fragment.querySelector(".card-link");
+    const previewBtn = fragment.querySelector(".card-preview");
 
     const category = item.category || "Без категорії";
     const difficulty = item.difficulty ? `${item.difficulty}/5` : "—";
@@ -108,8 +113,9 @@ function renderCards(list) {
     link.href = item.pdf_url;
     link.setAttribute("aria-label", `Відкрити інструкцію ${title.textContent}`);
 
-    if (item.image_url) {
-      image.src = item.image_url;
+    const imageSrc = resolveImageUrl(item.image_url);
+    if (imageSrc) {
+      image.src = imageSrc;
       image.alt = `Назва моделі LEGO WeDo: ${item.title}`;
     } else {
       card.classList.add("card--no-image");
@@ -117,6 +123,11 @@ function renderCards(list) {
         imageWrapper.remove();
       }
     }
+
+    const previewUrl = getPreviewUrl(item.pdf_url);
+    previewBtn.addEventListener("click", () =>
+      openPdfModal(previewUrl, item.title)
+    );
 
     cardsContainer.appendChild(fragment);
   });
@@ -126,8 +137,58 @@ function updateStats(visibleCount, totalCount) {
   statsEl.textContent = `Показано ${visibleCount} з ${totalCount} інструкцій.`;
 }
 
+function resolveImageUrl(url) {
+  if (!url) return "";
+  const normalized = url.trim();
+  const isAbsolute =
+    normalized.startsWith("http://") ||
+    normalized.startsWith("https://") ||
+    normalized.startsWith("/") ||
+    normalized.startsWith("./") ||
+    normalized.startsWith("../") ||
+    normalized.startsWith("data:");
+  if (isAbsolute) return normalized;
+  // Якщо у JSON вказано лише ім'я файлу, шукаємо його в папці img/ поруч із сайтом.
+  return `img/${normalized}`;
+}
+
+function getPreviewUrl(url) {
+  if (!url) return "";
+  const driveMatch = url.match(/https:\/\/drive\.google\.com\/file\/d\/([^/]+)\//);
+  if (driveMatch && driveMatch[1]) {
+    return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+  }
+  return url;
+}
+
+function openPdfModal(url, title) {
+  if (!url) return;
+  pdfFrame.src = url;
+  pdfModalTitle.textContent = title ? `PDF: ${title}` : "PDF інструкція";
+  pdfModal.hidden = false;
+  document.body.classList.add("no-scroll");
+}
+
+function closePdfModal() {
+  pdfModal.hidden = true;
+  pdfFrame.src = "";
+  document.body.classList.remove("no-scroll");
+}
+
 searchInput.addEventListener("input", applyFilters);
 categorySelect.addEventListener("change", applyFilters);
 difficultySelect.addEventListener("change", applyFilters);
+pdfClose.addEventListener("click", closePdfModal);
+pdfModal.addEventListener("click", (event) => {
+  if (event.target === pdfModal || event.target.classList.contains("modal__backdrop")) {
+    closePdfModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !pdfModal.hidden) {
+    closePdfModal();
+  }
+});
 
 loadInstructions();

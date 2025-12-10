@@ -26,6 +26,10 @@ body {
   min-height: 100vh;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -197,6 +201,12 @@ select:focus {
   gap: 8px;
 }
 
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
 .card-tag {
   display: inline-flex;
   align-items: center;
@@ -228,8 +238,91 @@ select:focus {
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
 }
 
+.card-preview {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: border-color 0.2s ease, transform 0.12s ease;
+}
+
+.card-preview:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
 .card--no-image .card-image-wrapper {
   display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.modal__content {
+  position: relative;
+  margin: 40px auto;
+  max-width: 1100px;
+  height: calc(100vh - 120px);
+  background: #0b1528;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.modal__header h3 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+
+.modal__close {
+  cursor: pointer;
+  border: none;
+  background: rgba(226, 232, 240, 0.12);
+  color: #e2e8f0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.modal__close:hover {
+  background: rgba(226, 232, 240, 0.2);
+}
+
+.modal iframe {
+  width: 100%;
+  height: calc(100% - 52px);
+  border: none;
+  background: #0b1528;
 }
 
 @media (min-width: 720px) {
@@ -246,5 +339,8 @@ select:focus {
 @media (min-width: 980px) {
   .cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .card-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
