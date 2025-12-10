@@ -1,0 +1,80 @@
+[
+  {
+    "id": "wedo-animal-01",
+    "title": "Рухається лев",
+    "description": "Модель лева з рухомою головою та хвостом для вивчення передачі руху.",
+    "category": "Тварини",
+    "difficulty": 2,
+    "pdf_url": "https://drive.google.com/file/d/1abcLionPDF/view",
+    "image_url": "https://drive.google.com/uc?export=view&id=1abcLionIMG",
+    "tags": ["WeDo 2.0", "мотор", "сенсор нахилу"]
+  },
+  {
+    "id": "wedo-transport-boat",
+    "title": "Моторний катер",
+    "description": "Катер, що пропливає крізь уявні хвилі та реагує на сенсор руху.",
+    "category": "Транспорт",
+    "difficulty": 1,
+    "pdf_url": "https://drive.google.com/file/d/1boatPDF/view",
+    "image_url": "https://drive.google.com/uc?export=view&id=1boatIMG",
+    "tags": ["WeDo 1.0", "сенсор руху", "вода (уявна)"]
+  },
+  {
+    "id": "wedo-robot-grabber",
+    "title": "Робот-захоплювач",
+    "description": "Робот, який захоплює і піднімає кубики за допомогою мотора.",
+    "category": "Роботи",
+    "difficulty": 3,
+    "pdf_url": "https://drive.google.com/file/d/1grabPDF/view",
+    "image_url": "https://drive.google.com/uc?export=view&id=1grabIMG",
+    "tags": ["WeDo 2.0", "STEM", "мотор", "проєкт для гуртка"]
+  },
+  {
+    "id": "wedo-animals-bird",
+    "title": "Співочий птах",
+    "description": "Проста модель птаха, що махає крилами та видає звук.",
+    "category": "Тварини",
+    "difficulty": 1,
+    "pdf_url": "https://drive.google.com/file/d/1birdPDF/view",
+    "image_url": "https://drive.google.com/uc?export=view&id=1birdIMG",
+    "tags": ["WeDo 1.0", "звук", "легкий старт"]
+  },
+  {
+    "id": "wedo-transport-heli",
+    "title": "Рятувальний гелікоптер",
+    "description": "Гелікоптер з підйомною лебідкою та світловою сигналізацією.",
+    "category": "Транспорт",
+    "difficulty": 4,
+    "pdf_url": "https://drive.google.com/file/d/1heliPDF/view",
+    "image_url": "https://drive.google.com/uc?export=view&id=1heliIMG",
+    "tags": ["WeDo 2.0", "мотор", "світло"]
+  },
+  {
+    "id": "wedo-robot-door",
+    "title": "Автоматичні двері",
+    "description": "Симуляція автоматичних дверей із сенсором руху для відкривання.",
+    "category": "Роботи",
+    "difficulty": 2,
+    "pdf_url": "https://drive.google.com/file/d/1doorPDF/view",
+    "tags": ["WeDo 2.0", "сенсор руху", "будівлі"]
+  },
+  {
+    "id": "wedo-fair-carousel",
+    "title": "Міні-карусель",
+    "description": "Обертова карусель з декількома кріслами та плавним стартом.",
+    "category": "Розваги",
+    "difficulty": 3,
+    "pdf_url": "https://drive.google.com/file/d/1caruPDF/view",
+    "image_url": "https://drive.google.com/uc?export=view&id=1caruIMG",
+    "tags": ["WeDo 2.0", "мотор", "таймер"]
+  },
+  {
+    "id": "wedo-animal-dino",
+    "title": "Динозавр, що ричить",
+    "description": "Модель динозавра з відкривною пащею та звуковими ефектами.",
+    "category": "Тварини",
+    "difficulty": 5,
+    "pdf_url": "https://drive.google.com/file/d/1dinoPDF/view",
+    "tags": ["WeDo 2.0", "звук", "просунутий рівень"]
+  }
+]

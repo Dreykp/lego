@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог інструкцій LEGO WeDo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">LEGO WeDo</p>
+      <h1>Каталог інструкцій LEGO WeDo</h1>
+      <p class="subtitle">Вибирай модель, переглядай PDF-інструкції та будуйте з дітьми без зайвих пошуків.</p>
+    </div>
+    <div class="hero__accent"></div>
+  </header>
+
+  <section class="filters" id="filters">
+    <div class="filters__inner">
+      <label class="field">
+        <span class="field__label">Пошук</span>
+        <input id="search" type="text" placeholder="Назва, опис або теги…" autocomplete="off">
+      </label>
+      <label class="field">
+        <span class="field__label">Категорія</span>
+        <select id="category">
+          <option value="">Усі категорії</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Складність</span>
+        <select id="difficulty">
+          <option value="">Усі рівні</option>
+          <option value="1">1 (дуже легко)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (важко)</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <main class="layout">
+    <div class="layout__meta">
+      <p id="stats">Завантаження даних…</p>
+      <p id="empty-message" hidden>За вибраними фільтрами нічого не знайдено. Спробуй змінити умови пошуку.</p>
+    </div>
+
+    <div id="cards-container" class="cards"></div>
+  </main>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="card-image-wrapper">
+        <img class="card-image" src="" alt="">
+      </div>
+      <div class="card-body">
+        <h3 class="card-title"></h3>
+        <p class="card-meta"></p>
+        <p class="card-description"></p>
+        <div class="card-tags"></div>
+        <a class="card-link" href="#" target="_blank" rel="noopener">Відкрити PDF-інструкцію</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
